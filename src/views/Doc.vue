@@ -2,7 +2,7 @@
   <div class="layout">
     <Topnav/>
     <div class="content">
-
+      sssss
     </div>
   </div>
 </template>
