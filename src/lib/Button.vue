@@ -112,6 +112,13 @@ $grey: grey;
         color: darken($red, 10%);
       }
     }
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover{
+        border-color: $grey;
+      }
+    }
   }
 
   &.gulu-theme-text {
@@ -143,6 +150,13 @@ $grey: grey;
         color: darken($red, 10%);
       }
     }
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover{
+        border-color: $grey;
+      }
+    }
   }
 
   &.gulu-theme-button {
@@ -172,6 +186,13 @@ $grey: grey;
       &:hover,&:focus {
         background: darken($red, 10%);
         border-color: darken($red, 10%);
+      }
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover{
+        border-color: $grey;
       }
     }
   }
