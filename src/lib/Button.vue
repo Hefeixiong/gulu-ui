@@ -196,9 +196,20 @@ $grey: grey;
       }
     }
   }
+  > .gulu-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: gulu-span 1s infinite linear;
+  }
 }
 
-@keyframes gulu-spin {
+@keyframes gulu-span {
   0% {
     transform: rotate(0deg)
   }
