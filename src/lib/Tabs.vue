@@ -1,25 +1,28 @@
 <template>
   <div class="gulu-tabs">
-    <div class="gulu-tabs-nav">
+    <div class="gulu-tabs-nav" ref="container">
       <div class="gulu-tabs-nav-item"
            v-for="(t , index) in titles"
+           :ref="el => { if (t===selected) selectedItem = el }"
            @click="select(t)"
            :class="{selected: t === selected}"
            :key="index">
         {{ t }}
       </div>
-      <div class="gulu-tabs-nav-indicator"></div>
+      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulu-tabs-content">
-      <component class="gulu-tabs-content-item" v-for="c in defaults" :class="{selected: c.props.title === selected }"
-                 :is="current"/>
+      <component class="gulu-tabs-content-item"
+                 v-for="c in defaults"
+                 :class="{selected: c.props.title === selected }"
+                 :is="c"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed} from 'vue';
+import {onMounted, ref, watchEffect} from 'vue';
 
 export default {
   props: {
@@ -28,19 +31,26 @@ export default {
     }
   },
   setup(props, context) {
+    const selectedItem = ref<HTMLDivElement>(null);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+    //挂载后在Effect，否则会报空
+    onMounted(() => {
+      watchEffect(() => {
+        const {width} = selectedItem.value?.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
+        const {left: left1} = container.value.getBoundingClientRect();
+        const {left: left2} = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.left = left + 'px';
+      });
+    });
+
     const defaults = context.slots.default();
-    console.log(defaults);
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs子组件必须是Tab');
       }
-    });
-
-    const current = computed(() => {
-      console.log('重新 return');
-      return defaults.filter((tag) => {
-        return tag.props.title === props.selected;
-      })[0];
     });
 
     const titles = defaults.map((tag) => {
@@ -53,8 +63,10 @@ export default {
     return {
       defaults,
       titles,
-      current,
-      select
+      select,
+      selectedItem,
+      indicator,
+      container
     };
   }
 };
@@ -93,6 +105,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 250ms;
     }
   }
 
