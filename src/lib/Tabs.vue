@@ -6,11 +6,13 @@
            @click="select(t)"
            :class="{selected: t === selected}"
            :key="index">
-        {{t}}
+        {{ t }}
       </div>
+      <div class="gulu-tabs-nav-indicator"></div>
     </div>
     <div class="gulu-tabs-content">
-      <component class="gulu-tabs-content-item" v-for="c in defaults" :class="{selected: c.props.title === selected }"  :is="current"/>
+      <component class="gulu-tabs-content-item" v-for="c in defaults" :class="{selected: c.props.title === selected }"
+                 :is="current"/>
     </div>
   </div>
 </template>
@@ -27,7 +29,7 @@ export default {
   },
   setup(props, context) {
     const defaults = context.slots.default();
-    console.log(defaults)
+    console.log(defaults);
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs子组件必须是Tab');
@@ -35,19 +37,19 @@ export default {
     });
 
     const current = computed(() => {
-      console.log('重新 return')
+      console.log('重新 return');
       return defaults.filter((tag) => {
-        return tag.props.title === props.selected
-      })[0]
-    })
+        return tag.props.title === props.selected;
+      })[0];
+    });
 
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
 
     const select = (title: string) => {
-      context.emit('update:selected' , title)
-    }
+      context.emit('update:selected', title);
+    };
     return {
       defaults,
       titles,
@@ -68,6 +70,7 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
 
     &-item {
       padding: 8px 0;
@@ -77,16 +80,28 @@ $border-color: #d9d9d9;
       &:first-child {
         margin-left: 0;
       }
+
       &.selected {
         color: $blue;
       }
     }
+
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
+    }
   }
+
   &-content {
     padding: 8px 0;
 
     &-item {
       display: none;
+
       &.selected {
         display: block;
       }
