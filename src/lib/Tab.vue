@@ -1,13 +1,6 @@
 <template>
   <div>
-    Tab组件
+
+    <slot/>
   </div>
 </template>
-
-<script lang="ts">
-
-</script>
-
-<style lang="scss" scoped>
-
-</style>
