@@ -10,8 +10,7 @@
       </div>
     </div>
     <div class="gulu-tabs-content">
-      {{current}}
-      <component class="gulu-tabs-content-item"  :is="current"/>
+      <component class="gulu-tabs-content-item" v-for="c in defaults" :class="{selected: c.props.title === selected }"  :is="current"/>
     </div>
   </div>
 </template>
@@ -28,6 +27,7 @@ export default {
   },
   setup(props, context) {
     const defaults = context.slots.default();
+    console.log(defaults)
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs子组件必须是Tab');
@@ -84,6 +84,13 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+
+    &-item {
+      display: none;
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
