@@ -51,10 +51,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.router-link-active {
-  text-decoration: underline;
-}
+<style lang="scss" scoped>
 .layout {
   display: flex;
   flex-direction: column;
@@ -77,14 +74,14 @@ export default {
 .content {
   display: flex;
 
-  > .aside {
+  > aside {
     flex-shrink: 0;
   }
 
-  > .main {
+  > main {
     flex-grow: 1;
     padding-left: 16px;
-    background: lightgreen;
+    background: white;
   }
 }
 
@@ -92,18 +89,28 @@ aside {
   background: lightblue;
   width: 150px;
   position: fixed;
+  padding: 70px 0 16px;
   top: 0;
   left: 0;
-  padding: 70px 16px 16px;
   height: 100%;
 
-  > .h2 {
+  > h2 {
     margin-bottom: 4px;
+
+    padding: 0 16px;
   }
 
-  > .ol {
-    > .li {
-      padding: 4px 0;
+  > ol {
+    > li {
+      > a {
+        display: block;
+        padding: 4px 16px;
+        text-decoration: none;
+      }
+
+      .router-link-active {
+        background: white;
+      }
     }
   }
 }
