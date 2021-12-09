@@ -1,16 +1,18 @@
 <template>
   <div class="topnav">
-    <div class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-hamburger"></use>
+        <use xlink:href="#icon-hemp"></use>
       </svg>
-    </div>
+    </router-link>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
+      <use xlink:href="#icon-hamburger"></use>
+    </svg>
   </div>
 </template>
 
@@ -19,14 +21,20 @@
 import {inject, Ref} from 'vue';
 
 export default {
-  setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible") //get
-    const toggleMenu = () => {
-      menuVisible.value = !menuVisible.value
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: true
     }
-    return {toggleMenu}
-   }
-}
+  },
+  setup() {
+    const menuVisible = inject<Ref<boolean>>('menuVisible'); //get
+    const toggleMenu = () => {
+      menuVisible.value = !menuVisible.value;
+    };
+    return {toggleMenu};
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -43,12 +51,14 @@ $color: #007974;
   z-index: 10;
   justify-content: center;
   align-items: center;
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
-    >svg{
-      height: 24px;
-      width: 24px;
+
+    > svg {
+      height: 32px;
+      width: 32px;
     }
   }
 
@@ -56,6 +66,7 @@ $color: #007974;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+
     > .li {
       margin: 0 1em;
     }
@@ -64,20 +75,19 @@ $color: #007974;
   > .toggleAside {
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     display: none;
   }
 
   @media (max-width: 500px) {
-    > .menu{
+    > .menu {
       display: none;
     }
 
-    > .logo{
+    > .logo {
       margin: 0 auto;
     }
 
