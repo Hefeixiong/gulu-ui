@@ -1,5 +1,6 @@
 import './styles/gulu.scss'
 import './index.scss'
+import 'github-markdown-css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import {router} from './router';
