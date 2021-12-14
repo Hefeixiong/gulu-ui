@@ -3,23 +3,22 @@
 </demo>
 
 <template>
-  <Switch v-model:value="buttonStatus" />
+  <Switch v-model:value="buttonStatus"/>
 </template>
 
 <script lang="ts">
-import Switch from '../../lib/Switch.vue'
-import {
-  ref
-} from 'vue'
+import Switch from '../../lib/Switch.vue';
+import {ref} from 'vue';
+
 export default {
   components: {
     Switch,
   },
   setup() {
-    const buttonStatus = ref(false)
+    const buttonStatus = ref(false);
     return {
       buttonStatus
-    }
+    };
   }
-}
+};
 </script>
