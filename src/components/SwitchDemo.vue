@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="buttonStatus"/&gt;</pre>
+        <pre>{{Switch1.__sourceCode}}</pre>
       </div>
     </div>
     <div class="demo">
@@ -22,7 +22,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="buttonStatus" disabled/&gt;</pre>
+        <pre>{{Switch1.__sourceCode}}</pre>
       </div>
     </div>
   </div>
@@ -45,7 +45,11 @@ export default {
   },
   setup() {
     const buttonStatus = ref(false);
-    return {buttonStatus};
+    return {
+      buttonStatus,
+      Switch1,
+      Switch2
+    };
   }
 };
 </script>
