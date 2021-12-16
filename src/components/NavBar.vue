@@ -51,6 +51,8 @@ $color: #1296db;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  background: white;
+  box-shadow: 0 3px 3px #1296db;
 
   > .logo {
     max-width: 6em;
