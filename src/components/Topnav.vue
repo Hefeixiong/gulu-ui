@@ -24,7 +24,7 @@ export default {
   props: {
     toggleMenuButtonVisible: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   setup() {
