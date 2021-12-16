@@ -1,8 +1,8 @@
 <template>
-  <div class="topnav">
+  <div class="navbar">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-hemp"></use>
+        <use xlink:href="#icon-Y"></use>
       </svg>
     </router-link>
     <ul class="menu">
@@ -38,9 +38,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #007974;
+$color: #1296db;
 
-.topnav {
+.navbar {
   color: $color;
   display: flex;
   padding: 16px;

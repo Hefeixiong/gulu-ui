@@ -1,15 +1,13 @@
 <template>
-  <div class="topnavAndBanner">
-    <Topnav/>
+    <NavBar/>
     <div class="banner">
-      <h1>轱辘UI</h1>
-      <h2>一个厉害的 UI 框架</h2>
+      <h1>Vue UI</h1>
+      <h2>一个自制的 UI 框架</h2>
       <p class="actions">
         <a href="https://github.com/Hefeixiong/gulu-ui" target="_blank">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
     </div>
-  </div>
 
   <div class="features">
     <ul>
@@ -39,21 +37,17 @@
 </template>
 
 <script lang="ts">
-import Topnav from '../components/Topnav.vue';
+import NavBar from '../components/NavBar.vue';
 
 export default {
-  components: {Topnav}
+  components: {NavBar}
 };
 </script>
 
 <style lang="scss">
-$green: #02bcb0;
+$green: #1296db;
 $border-radius: 4px;
-$color: #007974;
-.topnavAndBanner {
-  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
-  clip-path: ellipse(80% 60% at 50% 40%);
-}
+$color: #1296db;
 
 .features {
   margin: 64px auto;
@@ -115,6 +109,8 @@ $color: #007974;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 
   > .actions {
     padding: 8px 0;
