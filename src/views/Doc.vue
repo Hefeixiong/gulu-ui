@@ -82,6 +82,7 @@ $aside-index: 10;
   > main {
     flex-grow: 1;
     padding-left: 16px;
+    padding-right: 16px;
     background: white;
   }
 }
