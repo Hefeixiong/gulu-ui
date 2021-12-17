@@ -6,7 +6,6 @@
     <Demo :component="Level"/>
     <Demo :component="Size"/>
     <Demo :component="Loading"/>
-
   </div>
 </template>
 

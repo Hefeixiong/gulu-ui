@@ -17,3 +17,11 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss">
+div {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+</style>

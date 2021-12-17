@@ -1,13 +1,13 @@
 <template>
-    <NavBar/>
-    <div class="banner">
-      <h1>Vue UI</h1>
-      <h2>一个自制的 UI 框架</h2>
-      <p class="actions">
-        <a href="https://github.com/Hefeixiong/gulu-ui" target="_blank">GitHub</a>
-        <router-link to="/doc">开始</router-link>
-      </p>
-    </div>
+  <NavBar/>
+  <div class="banner">
+    <h1>Vue UI</h1>
+    <h2>一个自制的 UI 框架</h2>
+    <p class="actions">
+      <a href="https://github.com/Hefeixiong/gulu-ui" target="_blank">GitHub</a>
+      <router-link to="/doc">开始</router-link>
+    </p>
+  </div>
 
   <div class="features">
     <ul>
@@ -34,6 +34,10 @@
       </li>
     </ul>
   </div>
+  <div class="icp">
+    <img src="/public/icp.png" alt="">
+    <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021019832号-1</a>
+  </div>
 </template>
 
 <script lang="ts">
@@ -49,21 +53,30 @@ $green: #1296db;
 $border-radius: 4px;
 $color: #1296db;
 
+.icp {
+  display: flex;
+  justify-content: center;
+  >img {
+    width: 20px;
+    height: 20px;
+    margin: 0 16px;
+  }
+}
 .features {
   margin: 64px auto;
-  padding: 0  16px;
+  padding: 0 16px;
   @media (min-width: 800px) {
     width: 800px;
-    >ul {
-      >li {
+    > ul {
+      > li {
         width: 50%;
       }
     }
   }
   @media (min-width: 1200px) {
     width: 1200px;
-    >ul {
-      >li {
+    > ul {
+      > li {
         width: 33.333%;
       }
     }
