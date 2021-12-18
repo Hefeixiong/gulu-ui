@@ -37,7 +37,7 @@
           </li>
         </ol>
       </aside>
-      <main>
+      <main @click="toggleSide">
         <router-view/>
       </main>
     </div>
@@ -51,8 +51,17 @@ import {inject, Ref} from 'vue';
 export default {
   components: {NavBar},
   setup() {
+    const width = document.documentElement.clientWidth
     const menuVisible = inject<Ref<boolean>>('menuVisible'); // get
-    return {menuVisible};
+    const toggleSide = () => {
+      if (width < 500) {
+        menuVisible.value = false;
+      }
+    }
+    return {
+      menuVisible,
+      toggleSide
+    };
   },
 };
 </script>
