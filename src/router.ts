@@ -6,18 +6,10 @@ import SwitchDemo from "./components/SwitchDemo.vue";
 import ButtonDemo from "./components/ButtonDemo.vue";
 import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
-import {h} from 'vue';
-import Markdown from './components/Markdown.vue'
-// @ts-ignore
-import intro from './markdown/intros.md'
-// @ts-ignore
-import logs from './markdown/logs.md'
-// @ts-ignore
-import blogs from './markdown/blogs.md'
 
+import {blogs, intro, logs, md} from './markdown/index';
 const history = createWebHashHistory();
 
-const md = string => h(Markdown, {content: string , key:string})
 
 export const router = createRouter({
   history: history,
