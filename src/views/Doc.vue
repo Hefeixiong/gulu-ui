@@ -27,6 +27,15 @@
             <router-link to="/doc/tabs">Tabs 组件</router-link>
           </li>
         </ol>
+        <h2>个人空间</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/blogs">博客</router-link>
+          </li>
+          <li>
+            <a href="http://hefx.xyz/dist" target="_blank">旺财记账</a>
+          </li>
+        </ol>
       </aside>
       <main>
         <router-view/>

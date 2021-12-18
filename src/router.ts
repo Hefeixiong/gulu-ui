@@ -12,7 +12,8 @@ import Markdown from './components/Markdown.vue'
 import intro from './markdown/intros.md'
 // @ts-ignore
 import logs from './markdown/logs.md'
-
+// @ts-ignore
+import blogs from './markdown/blogs.md'
 
 const history = createWebHashHistory();
 
@@ -29,6 +30,7 @@ export const router = createRouter({
         {path: '' , redirect: '/doc/intro' },
         { path: "intro", component: md(intro)},
         { path: "logs", component: md(logs)},
+        { path: "blogs", component: md(blogs)},
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },
