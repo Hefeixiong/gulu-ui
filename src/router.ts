@@ -11,9 +11,8 @@ import Markdown from './components/Markdown.vue'
 // @ts-ignore
 import intro from './markdown/intros.md'
 // @ts-ignore
-import getStarted from './markdown/get-started.md'
-// @ts-ignore
-import install from './markdown/install.md'
+import logs from './markdown/logs.md'
+
 
 const history = createWebHashHistory();
 
@@ -29,8 +28,7 @@ export const router = createRouter({
       children: [
         {path: '' , redirect: '/doc/intro' },
         { path: "intro", component: md(intro)},
-        { path: "get-started", component: md(getStarted)},
-        { path: "install", component: md(install)},
+        { path: "logs", component: md(logs)},
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },
